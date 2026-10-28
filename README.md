@@ -1,4 +1,4 @@
-# Rockso V2
+# Rockso V2: Single-RTX-5090 Language Model Training
 
 Nick's current Rockso V2 trainer, runtime, chat and evaluation tools, prepared as a
 clean private source repository. GitHub holds the code and its change history;
