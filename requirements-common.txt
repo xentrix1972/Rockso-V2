@@ -1,0 +1,10 @@
+# Non-GPU reference packages. See docs/SETUP.md for the separately provisioned GPU stack.
+numpy==1.26.4
+transformers==4.57.1
+datasets==4.4.1
+pyarrow==23.0.1
+safetensors==0.7.0
+tqdm==4.67.3
+wandb==0.23.1
+# Native task evaluation; version must be recorded for a comparable rerun.
+sympy

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "get_weather",
+    "description": "Look up current weather for a city.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "celsius",
+            "fahrenheit"
+          ]
+        }
+      },
+      "required": [
+        "city",
+        "unit"
+      ]
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "calculator",
+    "description": "Evaluates an arithmetic expression.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  }
+]

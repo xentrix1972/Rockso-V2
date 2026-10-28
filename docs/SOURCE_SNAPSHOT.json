@@ -1,0 +1,281 @@
+{
+  "captured_utc": "2026-10-28T01:56:22.346868+00:00",
+  "scope": "Explicit allowlist of current source; no production history, data, weights or logs copied.",
+  "files": [
+    {
+      "file": "Implicit_curriculum_math_dense_v8_prefixlm_codex.py",
+      "source": "current production evaluation snapshot",
+      "source_sha256": "4d20528d5ec40c4b0fc659bac685bfb21a7b0787583efce5e2766a467099e704",
+      "staged_sha256": "4d20528d5ec40c4b0fc659bac685bfb21a7b0787583efce5e2766a467099e704",
+      "transformation": [
+        "Unchanged current source."
+      ]
+    },
+    {
+      "file": "chat_tools_calculator.json",
+      "source": "current production snapshot",
+      "source_sha256": "8bafb9e6372242114502e6b880e6acea2f77ed17b1759c105b9fde479c008474",
+      "staged_sha256": "8bafb9e6372242114502e6b880e6acea2f77ed17b1759c105b9fde479c008474",
+      "transformation": "none"
+    },
+    {
+      "file": "chat_tools_example.json",
+      "source": "current production snapshot",
+      "source_sha256": "52697bc57b30474527ad64a02a364edeb2b87e39361dd595a9f406e6623732fb",
+      "staged_sha256": "52697bc57b30474527ad64a02a364edeb2b87e39361dd595a9f406e6623732fb",
+      "transformation": "none"
+    },
+    {
+      "file": "code_output_policy.py",
+      "source": "current production evaluation snapshot",
+      "source_sha256": "1de49c9a64ea3b0cd93dbfed8e26d60bac740a711d5cd4b2ac35e46f79b7562f",
+      "staged_sha256": "1de49c9a64ea3b0cd93dbfed8e26d60bac740a711d5cd4b2ac35e46f79b7562f",
+      "transformation": [
+        "Unchanged current source."
+      ]
+    },
+    {
+      "file": "code_prompt_formats.py",
+      "source": "current production evaluation snapshot",
+      "source_sha256": "85ed0d364848d78ae3d6ac8488191bf054ff7b860ac47e7398bfaea24129b517",
+      "staged_sha256": "85ed0d364848d78ae3d6ac8488191bf054ff7b860ac47e7398bfaea24129b517",
+      "transformation": [
+        "Unchanged current source."
+      ]
+    },
+    {
+      "file": "configs/rockso_v2_32.json",
+      "bytes": 728,
+      "source_sha256": "81a97e18f2b1091433a51a2d9fb22e26adc6bf61c114cf5251520aa7c0042697",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "81a97e18f2b1091433a51a2d9fb22e26adc6bf61c114cf5251520aa7c0042697"
+    },
+    {
+      "file": "eval_lm_ppl.py",
+      "source": "accompanying local evaluation utility",
+      "source_sha256": "5081080e57db772547db23c3329ba91b74dc5f4bcdf46b57afd68d2fac7e176f",
+      "staged_sha256": "5683177615db17ee2beb3524632f8a8a06af9834b80b24c42c9227a553f42022",
+      "transformation": [
+        "Exact AST-source extraction of PRESETS, MECO_VARIANTS, wikitext_detokenizer, _word_count, load_records, build_sequences, print_result; omit unrelated legacy loader/CLI."
+      ]
+    },
+    {
+      "file": "eval_prefixlm_ppl.py",
+      "source": "current production evaluation snapshot",
+      "source_sha256": "8a4e7123d6c15f7c4b3d2de3face85ca802816f0cd766c5341707069c3f940ef",
+      "staged_sha256": "72ab30d2ef1a55f7fdc8b79afe30c6f332832e92c91189414d5878abb7c6c5cd",
+      "transformation": [
+        "Use repository-local imports.",
+        "Reject unsupported legacy checkpoint schemas.",
+        "Allow tokenizer directory relocation while preserving file-hash/vocab/pad/eos identity checks."
+      ]
+    },
+    {
+      "file": "hybrid_chat_adapter.py",
+      "source": "current production snapshot",
+      "source_sha256": "d5f21811281a95e99f311a00e21b3a5b2a5fc43b676e528e30e94eb7583acb68",
+      "staged_sha256": "1fe0e3817506c83c5214f319a71d17c59ae128ddf9ef4f75f4e74dee444a82fd",
+      "transformation": "Allow tokenizer path relocation; retain content and numerical identity checks."
+    },
+    {
+      "file": "hybrid_graph_decode.py",
+      "source": "current production snapshot",
+      "source_sha256": "a6d4edf32d67b780b203a19ac9abe65bcbdd9f58d125bc7edb9b478143635400",
+      "staged_sha256": "a6d4edf32d67b780b203a19ac9abe65bcbdd9f58d125bc7edb9b478143635400",
+      "transformation": "none"
+    },
+    {
+      "file": "monitoring_io.py",
+      "bytes": 4034,
+      "source_sha256": "7cc16741a6995ee11dc8ebf6798caf7bd677d6a0cd59ee8b6d132494c9c2d8e4",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "7cc16741a6995ee11dc8ebf6798caf7bd677d6a0cd59ee8b6d132494c9c2d8e4"
+    },
+    {
+      "file": "ppl_reference.py",
+      "source": "current production evaluation snapshot",
+      "source_sha256": "fc19f31fd5b8e4bbd73c60d75fa673d9bebbc20faca4fd8c704f503380e7bd22",
+      "staged_sha256": "12836a4f10b94732f8419120f2fec008c6987811349f7a2f088ddecba0b9030e",
+      "transformation": [
+        "Require explicit tokenizer and use relative cache/probe defaults.",
+        "Remove legacy model-loader implementation; native adapter supplies the V2 loader.",
+        "Reject unavailable legacy probe and historical evaluation W&B flags before evaluation; local JSON retained."
+      ]
+    },
+    {
+      "file": "rockso_bbh_eval.py",
+      "source": "accompanying local evaluation utility",
+      "source_sha256": "52c394f79f29e5abb7b02af45c21c7e84155f8ce076e0308e7c514a654530da0",
+      "staged_sha256": "8d2390e3c48266379a564cede52c54fc4b155c9e255f7be10156c04edb1c2852",
+      "transformation": [
+        "Portable benchmark cache default; upstream revision, LICENSE retrieval and checksum verification retained."
+      ]
+    },
+    {
+      "file": "rockso_chat_v5_prefixlm_145m.py",
+      "source": "current production snapshot",
+      "source_sha256": "d5b02310cc1102f5ef4cfcfef2f38f2234992e059414193276aa15ce9925cff7",
+      "staged_sha256": "13eb08c18cf3e8d5e6a1de40eaf54f5461867085374a3258cae73a2cf24c3148",
+      "transformation": "Explicit checkpoint and tokenizer CLI inputs; examples updated; trailing whitespace removed."
+    },
+    {
+      "file": "rockso_code_eval.py",
+      "source": "accompanying local evaluation utility",
+      "source_sha256": "e62d47899b235e5ecd525b7cff9929ab1f35968d11188e1d39d524af653ba3bd",
+      "staged_sha256": "2e3614ba710209c6f705f5cfa072d3d8c16d6a10b0460ab04a3e63c95a264a36",
+      "transformation": [
+        "Use ROCKSO_EVAL_ASSETS for pinned benchmark assets; original hashes/revisions retained.",
+        "Use installed bubblewrap or ROCKSO_CODE_BWRAP and explicit ROCKSO_CODE_RUNTIME; preserve isolation, limits and self-test.",
+        "Portable nvidia-smi lookup retains GPU-owner guard; relative result path."
+      ]
+    },
+    {
+      "file": "rockso_hrm_native_eval.py",
+      "source": "accompanying local evaluation utility",
+      "source_sha256": "4ab723d03cab1f2dc22def501722b5fa05bd06582c56331b5b63b87e24c703ac",
+      "staged_sha256": "2b1f27314df2e401bae1abe9e9bf8c8a8adb2de163836412b22664ec1beb3488",
+      "transformation": [
+        "Replace private tokenizer/implicit/GPQA/BBH paths with explicit inputs or portable local defaults."
+      ]
+    },
+    {
+      "file": "rockso_hrm_native_eval_prefixlm_codex.py",
+      "source": "current production evaluation snapshot",
+      "source_sha256": "6a83ea8863df68d3b37c4c1672832b3133bdfd344ab0dd0fa0010539105f696a",
+      "staged_sha256": "52b263142aca5441bbb343c55d3b5008de70428e65d36b0593a6df9ba5a66527",
+      "transformation": [
+        "Repository-local implicit loader; require explicit tokenizer.",
+        "Reject historical evaluation W&B flags before evaluation; keep local JSON/generation streams."
+      ]
+    },
+    {
+      "file": "rockso_hybrid/__init__.py",
+      "bytes": 180,
+      "source_sha256": "800fe94440ffa72914687919d1e024910a2769575121c713776413c02d6dceb1",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "800fe94440ffa72914687919d1e024910a2769575121c713776413c02d6dceb1"
+    },
+    {
+      "file": "rockso_hybrid/config.py",
+      "bytes": 4417,
+      "source_sha256": "2d1046fc047d56c6154fa766a9071ce346b230af1c6ca65463f364f0e15cfde2",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "2d1046fc047d56c6154fa766a9071ce346b230af1c6ca65463f364f0e15cfde2"
+    },
+    {
+      "file": "rockso_hybrid/data.py",
+      "bytes": 7447,
+      "source_sha256": "c2f3cfab255ee2eeb3dfac3f53e789a4ad803baffa25be86e6572d33a913da2f",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "c2f3cfab255ee2eeb3dfac3f53e789a4ad803baffa25be86e6572d33a913da2f"
+    },
+    {
+      "file": "rockso_hybrid/fp8_execution.py",
+      "bytes": 2932,
+      "source_sha256": "2e927fc3b8c8513cf513dc0f2f790efaacbe7fb8cec973875c6d195fa25fed97",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "2e927fc3b8c8513cf513dc0f2f790efaacbe7fb8cec973875c6d195fa25fed97"
+    },
+    {
+      "file": "rockso_hybrid/input_pipeline.py",
+      "bytes": 5402,
+      "source_sha256": "8882c8a45ae4451a75d6fa442ddb6a5e8b08a69fb845cb0547e1f8965ce5ef39",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "8882c8a45ae4451a75d6fa442ddb6a5e8b08a69fb845cb0547e1f8965ce5ef39"
+    },
+    {
+      "file": "rockso_hybrid/loss.py",
+      "bytes": 3316,
+      "source_sha256": "ec51622b4e9f48763708cb2da5d6c855a5fc1010050d63b74c9fc930cb8ff361",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "ec51622b4e9f48763708cb2da5d6c855a5fc1010050d63b74c9fc930cb8ff361"
+    },
+    {
+      "file": "rockso_hybrid/masking.py",
+      "bytes": 3128,
+      "source_sha256": "fe1205f47ebf9b604a2e7be4cf433b6f582412921a15d14f8ebc32807285df11",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "fe1205f47ebf9b604a2e7be4cf433b6f582412921a15d14f8ebc32807285df11"
+    },
+    {
+      "file": "rockso_hybrid/model.py",
+      "bytes": 15014,
+      "source_sha256": "612fc4182f128bac38066124d992ca636bfaf8ac56e841eb7546f336e361bbf9",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "612fc4182f128bac38066124d992ca636bfaf8ac56e841eb7546f336e361bbf9"
+    },
+    {
+      "file": "rockso_hybrid/residual.py",
+      "bytes": 1523,
+      "source_sha256": "d55bd2bba1e0bdb6dfa8b104c6132a1152d268950d13f6939cccaa94cb2dfeab",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "d55bd2bba1e0bdb6dfa8b104c6132a1152d268950d13f6939cccaa94cb2dfeab"
+    },
+    {
+      "file": "rockso_hybrid/runtime.py",
+      "bytes": 18815,
+      "source_sha256": "6500a185c786e8141df53c4572b55237c0663e06eb78366b437eee31498b0774",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "6500a185c786e8141df53c4572b55237c0663e06eb78366b437eee31498b0774"
+    },
+    {
+      "file": "rockso_hybrid/vendor/__init__.py",
+      "bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "rockso_hybrid/vendor/normuon_optimizer_v3.py",
+      "bytes": 49707,
+      "source_sha256": "fc2605a1168ce64a3df53f4a91af74be4402ab60cf3b2076e1568237891d7cd7",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "fc2605a1168ce64a3df53f4a91af74be4402ab60cf3b2076e1568237891d7cd7"
+    },
+    {
+      "file": "telemetry.py",
+      "bytes": 16682,
+      "source_sha256": "73b5763ce3f0c48efae115b8c7701a6f317202fa4a6ecf6dad299ef29198cb65",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "73b5763ce3f0c48efae115b8c7701a6f317202fa4a6ecf6dad299ef29198cb65"
+    },
+    {
+      "file": "tool_prompt_formats.py",
+      "source": "current production snapshot",
+      "source_sha256": "c101e8a221f72242bb24a2c45e7e6e0e8081f9e56edcd1f65214bf3e0ab29f70",
+      "staged_sha256": "815e9e1501ca67b803c69a8099c75e92b6c5246fbda4a94c4751246eef626294",
+      "transformation": "Remove private absolute path from attribution; retain filename/date."
+    },
+    {
+      "file": "train.py",
+      "bytes": 32588,
+      "source_sha256": "0b929161dec3f251bf68b2a9e08222fafcdbac46c0c8015f26059f753c464bf5",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "0b929161dec3f251bf68b2a9e08222fafcdbac46c0c8015f26059f753c464bf5"
+    },
+    {
+      "file": "wandb_publisher.py",
+      "bytes": 8058,
+      "source_sha256": "dee9f59db135b823c14e04ab78d2adfa28c01536a15e422cde5fe175df8fa035",
+      "source": "current production snapshot",
+      "transformation": "none",
+      "staged_sha256": "dee9f59db135b823c14e04ab78d2adfa28c01536a15e422cde5fe175df8fa035"
+    }
+  ]
+}
