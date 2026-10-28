@@ -1,9 +1,29 @@
 # Rockso V2: Single-RTX-5090 Language Model Training
 
-Nick's current Rockso V2 trainer, runtime, chat and evaluation tools, prepared as a
-clean private source repository. GitHub holds the code and its change history;
-model weights and training data are separate. This copy was prepared without
-changing the live training run.
+This trainer is optimized to train language models on a **single NVIDIA RTX 5090
+(32 GB)**. **Rockso V2** is the model being trained with it. The repository includes
+the trainer, runtime, chat and evaluation tools, plus the explicit training recipe.
+
+The recipe combines several precision, memory and kernel choices:
+
+- **Mixed precision:** BF16 model storage, TorchAO FP8 execution for large
+  attention and MLP projections, and FP32 numerical paths for norms, gates, RoPE
+  and learned scalars. TF32 is permitted for FP32 matrix multiplication.
+- **Memory management:** activation checkpointing except for the last two layers,
+  gradient accumulation, and stochastic BF16 NorMuon matrix updates without full
+  FP32 matrix master copies. Embedding optimizer weights and moments remain FP32.
+- **Compiled and fused execution:** `torch.compile` on transformer blocks,
+  compiled FlexAttention for the packed PrefixLM masks, and Liger fused linear
+  cross-entropy for the response-only loss.
+- **Matrix alignment:** a Triton padding kernel expands the relevant FP8 MLP
+  contractions from width 6832 to 6912 for execution, while retaining the logical
+  parameter shapes, quantization scales and optimizer matrices.
+
+See the [architecture and numerical paths](docs/ARCHITECTURE.md),
+[reference software stack](docs/SETUP.md) and
+[launch recipe](scripts/launch_rsi_32.sh) for the exact choices. Model weights and
+training data are separate. This private source copy was prepared without changing
+the live training run; no new GPU performance measurements were made.
 
 **NorMuon is the corrected version without the shape-based learning-rate
 multiplier.** At production checkpoint **50,330**, the update coefficient changed
