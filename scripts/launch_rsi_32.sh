@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Portable copy of the current recipe. Review inputs/environment before launching.
+# Portable recipe with Nick's lower fresh-run base rates; other settings retained.
+# Use a fresh output directory for a new run. Review inputs/environment first.
 set -euo pipefail
 ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 : "${ROCKSO_DATA:?Set ROCKSO_DATA to your packed dataset directory}"
@@ -30,8 +31,8 @@ exec "$PYTHON" -u "$ROOT/train.py" \
   --persistent-workers --pin-memory --non-blocking \
   --steps 176491 --lr-schedule wsd --wsd-decay-style linear \
   --stable-until-step 141193 --schedule-steps 176491 --warmup-steps 1000 --min-lr-ratio 0.0 \
-  --muon-lr 0.011 --muon-momentum-start 0.85 --muon-momentum 0.95 \
-  --muon-momentum-warmup-steps 1000 --adam-lr 0.0012 --weight-decay 0.025 \
+  --muon-lr 0.007 --muon-momentum-start 0.85 --muon-momentum 0.95 \
+  --muon-momentum-warmup-steps 1000 --adam-lr 0.0005 --weight-decay 0.025 \
   --ve-lr-mult 64 --ve-weight-decay 0.000390625 --clip-grad 1.0 \
   --save-every 1000 --log-every 10 --wandb-mode disabled \
   --wandb-every 10 --monitor-every 50 --monitor-layer-every 250 --monitor-sample-size 2048 \

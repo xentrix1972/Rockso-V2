@@ -28,11 +28,18 @@ the live training run; no new GPU performance measurements were made.
 **NorMuon is the corrected version without the shape-based learning-rate
 multiplier.** At production checkpoint **50,330**, the update coefficient changed
 from `lr * sqrt(max(1, rows / cols)) * lr_mul` to `lr * lr_mul`.
-The configured base rate remains **0.011**; the 6832-by-2048 gate/up coefficient
-is **0.011**, previously about **0.020091**. Coupled cautious weight decay is
-preserved. See [the correction history](docs/NORMUON_HISTORY.md).
+That correction kept the then-configured base rate at **0.011**, reducing the
+6832-by-2048 gate/up coefficient from about **0.020091** to **0.011**.
+Coupled cautious weight decay is preserved.
 
-Training charts: [Rockso V2 on W&B](https://wandb.ai/xentrix1972-nick-bochy/Rockso_v2/runs/25bc0bfca35b).
+**Current fresh-run recipe: Adam base LR 0.0005; NorMuon base LR 0.007.**
+Nick confirmed these lower rates are for a fresh run after the previous run
+stalled. Excessive learning rate is the suspected cause, not an established
+diagnosis. The matrix-shape multiplier remains removed, so the gate/up peak
+coefficient is **0.007**. The launcher retains the other previously documented
+settings. See [the correction and run history](docs/NORMUON_HISTORY.md).
+
+Original-run charts: [Rockso V2 on W&B](https://wandb.ai/xentrix1972-nick-bochy/Rockso_v2/runs/25bc0bfca35b).
 A Hugging Face model location has not yet been verified; no weights URL is assumed.
 
 ## Start here
@@ -70,7 +77,8 @@ Ledger defaults are `$ROCKSO_DATA/ledger/order.npy` and
 `$ROCKSO_DATA/ledger/ledger.json`; override with `ROCKSO_LEDGER` and
 `ROCKSO_LEDGER_META`. `--resume auto` starts fresh in an empty output or resumes
 the highest saved native checkpoint in that output. Choose a fresh output for
-a new lineage. Resume restores optimizer/RNG/cursor state and validates the
+a new lineage, including the lower-rate fresh run described above. Resume restores
+optimizer/RNG/cursor state and validates the
 architecture, tokenizer and data contract.
 
 W&B publishing is disabled in this portable example. To enable it using your own

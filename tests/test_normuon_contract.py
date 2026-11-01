@@ -126,7 +126,7 @@ class NorMuonContract(unittest.TestCase):
 
     def test_shape_independent_rate_and_coupled_decay(self):
         for shape in ((2048, 2048), (512, 2048), (6832, 2048), (2048, 6832)):
-            for lr in (0.011, 0.011 * 0.5, 0.0):
+            for lr in (0.011, 0.0055, 0.007, 0.0035, 0.0):
                 with self.subTest(shape=shape, lr=lr):
                     self.execute_step(shape=shape, lr=lr)
                     _, actual_lr, actual_wd = self.calls[-1]
@@ -174,15 +174,17 @@ class NorMuonContract(unittest.TestCase):
 
     def test_schedule_preserves_configured_base_rates(self):
         scale = load_function(ROOT / "rockso_hybrid/runtime.py", "scale_lr", {"math": math}, owner="HybridOptimizer")
-        for factor in (0.0, 0.5, 1.0):
-            optimizer = SimpleNamespace(base_lrs=(0.011, 0.0012),
-                muon=SimpleNamespace(param_groups=[{"lr": 999}]),
-                adam=SimpleNamespace(param_groups=[{"lr_multiplier": m} for m in (1, 4, 64)]))
-            scale(optimizer, factor)
-            self.assertEqual(optimizer.base_lrs, (0.011, 0.0012))
-            self.assertAlmostEqual(optimizer.muon.param_groups[0]["lr"], 0.011 * factor)
-            for group in optimizer.adam.param_groups:
-                self.assertAlmostEqual(group["lr"], 0.0012 * group["lr_multiplier"] * factor)
+        for muon_lr, adam_lr in ((0.011, 0.0012), (0.007, 0.0005)):
+            for factor in (0.0, 0.5, 1.0):
+                with self.subTest(muon_lr=muon_lr, adam_lr=adam_lr, factor=factor):
+                    optimizer = SimpleNamespace(base_lrs=(muon_lr, adam_lr),
+                        muon=SimpleNamespace(param_groups=[{"lr": 999}]),
+                        adam=SimpleNamespace(param_groups=[{"lr_multiplier": m} for m in (1, 4, 64)]))
+                    scale(optimizer, factor)
+                    self.assertEqual(optimizer.base_lrs, (muon_lr, adam_lr))
+                    self.assertAlmostEqual(optimizer.muon.param_groups[0]["lr"], muon_lr * factor)
+                    for group in optimizer.adam.param_groups:
+                        self.assertAlmostEqual(group["lr"], adam_lr * group["lr_multiplier"] * factor)
 
     def test_future_launch_telemetry_reports_actual_rate(self):
         path = ROOT / "telemetry.py"
@@ -191,7 +193,7 @@ class NorMuonContract(unittest.TestCase):
                  any(isinstance(target, ast.Subscript) and isinstance(target.slice, ast.Constant) and
                      target.slice.value == "lr/normuon_gate_up_effective" for target in n.targets)]
         self.assertEqual(len(nodes), 1)
-        for rate in (0.011, 0.0055, 0.0):
+        for rate in (0.011, 0.0055, 0.007, 0.0035, 0.0):
             namespace = {"row": {"learning_rates": {"normuon": rate}}, "metrics": {}, "math": math}
             exec(compile(ast.Module(body=nodes, type_ignores=[]), str(path), "exec"), namespace)
             self.assertEqual(namespace["metrics"]["lr/normuon_gate_up_effective"], rate)

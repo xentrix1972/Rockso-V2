@@ -29,7 +29,7 @@ def main():
     config = json.loads((ROOT / 'configs/rockso_v2_32.json').read_text())
     assert (config['n_layer'], config['n_embd'], config['mlp_hidden']) == (32, 2048, 6832)
     launcher = (ROOT / 'scripts/launch_rsi_32.sh').read_text()
-    for flag in ('--muon-lr 0.011', '--adam-lr 0.0012', '--weight-decay 0.025',
+    for flag in ('--muon-lr 0.007', '--adam-lr 0.0005', '--weight-decay 0.025',
                  '--normuon-stochastic-rounding', '--fp8-mlp-pad-to 6912'):
         assert flag in launcher, f'Recipe mismatch: {flag}'
     print(f'PASS: {len(names)} allowed text files; {python_count} Python and {json_count} JSON parsed.')

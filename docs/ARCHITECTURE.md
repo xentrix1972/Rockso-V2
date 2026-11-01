@@ -26,13 +26,18 @@ Other parameters use standard PyTorch AdamW, with FP32 master weights/moments fo
 BF16 embeddings. Matrix updates use stochastic BF16 writes instead of full FP32
 matrix masters when both master-weight and stochastic-NorMuon flags are selected.
 
+The current launcher uses Nick's fresh-run base rates below. Existing explicit
+group multipliers and decay settings are retained; the value-embedding and branch
+rates follow from those multipliers. Earlier rates are recorded in
+[the run history](NORMUON_HISTORY.md).
+
 | Group | Peak rate | Decay |
 | --- | --- | --- |
-| NorMuon matrices | 0.011 | 0.025, coupled cautious decay |
-| Adam/tied embedding | 0.0012 | 0.025 where applicable |
-| Value embedding | 0.0768 (64 × Adam base) | 0.000390625 |
-| Residual scalars | 0.0012 | 0 |
-| Branch scalars | 0.0048 (4 × Adam base) | 0 |
+| NorMuon matrices | 0.007 | 0.025, coupled cautious decay |
+| Adam/tied embedding | 0.0005 | 0.025 where applicable |
+| Value embedding | 0.032 (64 × Adam base) | 0.000390625 |
+| Residual scalars | 0.0005 | 0 |
+| Branch scalars | 0.002 (4 × Adam base) | 0 |
 
 NorMuon momentum ramps from 0.85 on update 1 to 0.95 at update 1,000, then remains
 constant. Momentum and LR schedules use the absolute saved update index on resume.
