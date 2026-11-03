@@ -4,6 +4,13 @@ This trainer is optimized to train language models on a **single NVIDIA RTX 5090
 (32 GB)**. **Rockso V2** is the model being trained with it. The repository includes
 the trainer, runtime, chat and evaluation tools, plus the explicit training recipe.
 
+**Development research release.** Original code is licensed under
+[Apache-2.0](LICENSE), with [third-party notices](THIRD_PARTY_NOTICES.md).
+The public [weights-only snapshot](https://huggingface.co/drrockso72/rockso1.85b_checkpoints/tree/e40c9c6070092dbbcbdbcfa3997ead331b351496)
+has a [tested CPU loading/generation path](docs/INFERENCE.md). No benchmark scores
+are claimed for that checkpoint. Weights, tokenizer and data licensing are
+[separate](LICENSING.md).
+
 The recipe combines several precision, memory and kernel choices:
 
 - **Mixed precision:** BF16 model storage, TorchAO FP8 execution for large
@@ -22,8 +29,8 @@ The recipe combines several precision, memory and kernel choices:
 See the [architecture and numerical paths](docs/ARCHITECTURE.md),
 [reference software stack](docs/SETUP.md) and
 [launch recipe](scripts/launch_rsi_32.sh) for the exact choices. Model weights and
-training data are separate. This private source copy was prepared without changing
-the live training run; no new GPU performance measurements were made.
+training data are separate. Release preparation did not change the live training
+run; no new GPU performance measurements were made.
 
 **NorMuon is the corrected version without the shape-based learning-rate
 multiplier.** At production checkpoint **50,330**, the update coefficient changed
@@ -33,16 +40,23 @@ That correction kept the then-configured base rate at **0.011**, reducing the
 Coupled cautious weight decay is preserved.
 
 **Current fresh-run recipe: Adam base LR 0.0005; NorMuon base LR 0.007.**
-Nick confirmed these lower rates are for a fresh run after the previous run
-stalled. Excessive learning rate is the suspected cause, not an established
-diagnosis. The matrix-shape multiplier remains removed, so the gate/up peak
-coefficient is **0.007**. The launcher retains the other previously documented
-settings. See [the correction and run history](docs/NORMUON_HISTORY.md).
+These rates belong to the fresh run after the previous run stalled. Excessive
+learning rate is a hypothesis, not an established diagnosis. NorMuon momentum
+ramps from 0.85 to 0.95 over 1,000 updates. The shape multiplier remains removed,
+so the gate/up peak coefficient is **0.007**. See
+[the correction and run history](docs/NORMUON_HISTORY.md).
 
 Original-run charts: [Rockso V2 on W&B](https://wandb.ai/xentrix1972-nick-bochy/Rockso_v2/runs/25bc0bfca35b).
-A Hugging Face model location has not yet been verified; no weights URL is assumed.
+The linked Hugging Face snapshot is from the fresh run: companion checkpoint
+metadata records **step 12,168 / 3,987,210,240 input tokens**. Its `model.pt` is
+weights-only and is not resumable. These counters are not stored in the export
+itself. The original-run charts are not measurements of this fresh checkpoint.
 
 ## Start here
+
+To try the released weights, follow [CPU inference](docs/INFERENCE.md), which
+pins the download revision, verifies the exact checkpoint/tokenizer and preserves
+the native PrefixLM prompt conditions. For training:
 
 1. Use Linux or WSL2 and a separate Python environment. Read
    [setup and environment requirements](docs/SETUP.md).
@@ -101,7 +115,9 @@ scalars. [Architecture details](docs/ARCHITECTURE.md) explain the numerical path
 
 [Evaluation instructions](docs/EVALUATION.md) cover PPL, native task evaluation,
 HumanEval/MBPP assets and sandboxing, and exact condition/template conventions.
-For interactive chat, with the model's matching native checkpoint and tokenizer:
+For the public weights-only export, use [the CPU reference command](docs/INFERENCE.md).
+The legacy interactive chat command below is for a separately supplied matching
+native checkpoint and tokenizer in its qualified environment:
 
 ```bash
 python rockso_chat_v5_prefixlm_145m.py \
@@ -110,13 +126,14 @@ python rockso_chat_v5_prefixlm_145m.py \
 ```
 
 The historical `145m` script filename does not describe this V2 model's size.
-No model inference or GPU tests were run while packaging this repository.
+CPU export validation is recorded in [RELEASE_VALIDATION.md](docs/RELEASE_VALIDATION.md).
+No GPU generation, training or performance tests were run for this preparation.
 
 ## What is reproducible
 
 This repository preserves the training recipe and evaluation code. Full training
 reproduction also requires the private packed corpus, exact ordering ledger,
-tokenizer, environment builds and any continuation checkpoint. None is bundled.
+tokenizer, environment builds and any continuation checkpoint. None is bundled in Git.
 Evaluation requires matching weights/tokenizer plus the chosen benchmark assets.
 The private RSI tail probe measures training-mixture exposure; it is not a
 permanent document-disjoint validation set.
@@ -133,6 +150,8 @@ private conversations, handoffs, credentials and original Git history are exclud
 The native evaluator retains eight attributed GSM8K prompt examples as protocol
 fixtures; their license/provenance review is recorded in the notices below.
 
-**No license grant is made for Nick's original code.** The repository is intended
-to remain private. See [LICENSING.md](LICENSING.md) and
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before any public release.
+**Original Rockso code and documentation: Apache-2.0.** Incorporated material
+retains its own terms. See [LICENSING.md](LICENSING.md),
+[NOTICE](NOTICE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and the
+[release checklist](docs/PUBLIC_RELEASE_CHECKLIST.md). This source license does
+not grant rights to the separately distributed weights, tokenizer or datasets.

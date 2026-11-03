@@ -1,0 +1,6 @@
+# CPU reference generation. Install torch==2.10.0 from the CPU index first.
+numpy==1.26.4
+transformers==4.57.1
+tokenizers==0.22.1
+huggingface-hub==0.36.2
+safetensors==0.7.0

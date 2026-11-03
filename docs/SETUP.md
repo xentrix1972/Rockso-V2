@@ -1,5 +1,9 @@
 # Setup and environment
 
+For the public weights-only export, start with [CPU inference](INFERENCE.md).
+It has a separate small dependency manifest and does not require the training
+stack below. The recorded training environment is not a CPU inference lockfile.
+
 Use Linux/WSL2 with Python 3.10. The production recipe uses a CUDA GPU supporting
 the retained BF16/FP8 paths, PyTorch Flex attention, TorchAO FP8, Triton and Liger.
 Hardware capacity and kernel compatibility must be qualified separately. This
@@ -51,8 +55,9 @@ original private data preparation pipeline and corpus are not part of this copy.
 
 Only trusted native checkpoints should be used: they contain Python/NumPy RNG
 and optimizer objects and are loaded with `weights_only=False`. Do not point the
-examples at arbitrary downloaded checkpoint files. Evaluation of a Hugging Face
-weights export requires an appropriate loader/export contract not supplied here.
+examples at arbitrary downloaded checkpoint files. The separate
+[`infer_export.py`](../infer_export.py) loader supports the pinned Hugging Face
+weights-only export using `weights_only=True`; see [its exact contract](INFERENCE.md).
 
 The source-only checks need no installation of `requirements-common.txt`:
 

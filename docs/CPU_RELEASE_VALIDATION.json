@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "checkpoint_sha256": "1b228a0fbd4ab04a5a2c598ed2cb35d1b8c678550d69d185cb2c195c746e3869",
+  "schema": "rockso_hybrid_export_1",
+  "tensor_count": 565,
+  "unique_parameter_count": 1846878764,
+  "all_tensor_values_and_dtypes_preserved": true,
+  "aliases_preserved": [
+    [
+      "embed.weight",
+      "lm_head.weight"
+    ],
+    [
+      "blocks.16.mudd.reduce.weight",
+      "blocks.31.mudd.reduce.weight"
+    ]
+  ],
+  "original_and_published_tokenizer_layouts_verified": true,
+  "tokenizer_mismatch_rejected": true,
+  "python": "3.10.12",
+  "torch": "2.10.0+cpu",
+  "transformers": "4.57.1",
+  "tokenizers": "0.22.1",
+  "cuda_initialized": false,
+  "threads": 2,
+  "outputs": [
+    {
+      "text": "4",
+      "generated_ids": [
+        46,
+        7
+      ],
+      "prefix_length": 11,
+      "stop_reason": "answer_end",
+      "prompt": "What is 2 + 2?",
+      "condition": "direct"
+    },
+    {
+      "text": "Paris",
+      "generated_ids": [
+        47129,
+        7
+      ],
+      "prefix_length": 10,
+      "stop_reason": "answer_end",
+      "prompt": "What is the capital of France?",
+      "condition": "direct"
+    },
+    {
+      "text": "The sum of two numbers is calculated by",
+      "generated_ids": [
+        343,
+        1118,
+        303,
+        717,
+        1344,
+        320,
+        5918,
+        428
+      ],
+      "prefix_length": 12,
+      "stop_reason": "max_new_tokens",
+      "prompt": "What is 2 + 2?",
+      "condition": "synth,cot"
+    }
+  ],
+  "limits": "Bounded CPU reference generation; no GPU parity, quality benchmark, optimizer or training execution.",
+  "pinned_tokenizer_download_cli": {
+    "revision": "e40c9c6070092dbbcbdbcfa3997ead331b351496",
+    "files_downloaded": 4,
+    "result": {
+      "text": "4",
+      "generated_ids": [
+        46,
+        7
+      ],
+      "prefix_length": 11,
+      "stop_reason": "answer_end",
+      "checkpoint_sha256": "1b228a0fbd4ab04a5a2c598ed2cb35d1b8c678550d69d185cb2c195c746e3869",
+      "schema": "rockso_hybrid_export_1",
+      "condition": "direct",
+      "tensor_count": 565,
+      "unique_parameters": 1846878764,
+      "aliases": [
+        [
+          "embed.weight",
+          "lm_head.weight"
+        ],
+        [
+          "blocks.16.mudd.reduce.weight",
+          "blocks.31.mudd.reduce.weight"
+        ]
+      ],
+      "stored_values_and_dtypes_preserved": true,
+      "torch_version": "2.10.0+cpu",
+      "cuda_initialized": false,
+      "python_version": "3.10.12",
+      "transformers_version": "4.57.1",
+      "tokenizers_version": "0.22.1",
+      "backend": "cpu_sdpa_full_recompute",
+      "sampling": "greedy"
+    }
+  }
+}

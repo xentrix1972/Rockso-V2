@@ -5,6 +5,10 @@
 !/README.md
 !/LICENSING.md
 !/THIRD_PARTY_NOTICES.md
+!/LICENSE
+!/NOTICE
+!/infer_export.py
+!/requirements-inference.txt
 !/requirements-common.txt
 !/TRACKED_FILES.txt
 !/train.py
@@ -49,10 +53,22 @@
 !/tests/
 !/tests/test_normuon_contract.py
 !/tests/test_eval_formats.py
+!/tests/test_infer_export.py
 !/docs/
 !/docs/ARCHITECTURE.md
 !/docs/EVALUATION.md
 !/docs/SETUP.md
 !/docs/NORMUON_HISTORY.md
 !/docs/SOURCE_SNAPSHOT.json
+!/docs/INFERENCE.md
+!/docs/CPU_RELEASE_VALIDATION.json
+!/docs/RELEASE_VALIDATION.md
+!/docs/PUBLIC_RELEASE_CHECKLIST.md
+!/docs/THIRD_PARTY_SOURCE_MANIFEST.json
+!/third_party/
+!/third_party/licenses/
+!/third_party/licenses/modded-nanogpt-MIT.txt
+!/third_party/licenses/lm-evaluation-harness-MIT.txt
+!/third_party/licenses/OLMo-core-Apache-2.0.txt
+!/third_party/licenses/Limite-Violetto-Apache-2.0.txt
 # Caches, credentials, binaries, run outputs and all unlisted files stay ignored.
