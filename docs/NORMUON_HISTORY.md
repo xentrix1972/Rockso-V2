@@ -30,11 +30,10 @@ the original production snapshot, including embedded attribution and historical 
 
 ## Subsequent fresh run with lower base rates
 
-Nick reported that the previous run stalled and confirmed the replacement is a
+The previous run stalled and confirmed the replacement is a
 **fresh run**, with **Adam base LR 0.0005** and **NorMuon base LR 0.007**. The
 previous recipe used Adam **0.0012** and NorMuon **0.011** after the shape fix.
-High learning rate is suspected as the cause of the stall; this is an owner report,
-not a causal result established by a controlled comparison.
+High learning rate is suspected as the cause of the stall.
 
 The launch example now uses the new base rates. Other recipe settings, including
 explicit value-embedding/branch multipliers, decay, warmup and schedule lengths,
