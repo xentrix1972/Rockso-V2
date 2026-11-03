@@ -46,12 +46,6 @@ ramps from 0.85 to 0.95 over 1,000 updates. The shape multiplier remains removed
 so the gate/up peak coefficient is **0.007**. See
 [the correction and run history](docs/NORMUON_HISTORY.md).
 
-Original-run charts: [Rockso V2 on W&B](https://wandb.ai/xentrix1972-nick-bochy/Rockso_v2/runs/25bc0bfca35b).
-The linked Hugging Face snapshot is from the fresh run: companion checkpoint
-metadata records **step 12,168 / 3,987,210,240 input tokens**. Its `model.pt` is
-weights-only and is not resumable. These counters are not stored in the export
-itself. The original-run charts are not measurements of this fresh checkpoint.
-
 ## Start here
 
 To try the released weights, follow [CPU inference](docs/INFERENCE.md), which
