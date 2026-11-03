@@ -1,0 +1,72 @@
+{
+  "wikitext_body_ast_exact_after_input_adaptation": true,
+  "gsm8k_eight_question_answer_pairs_match_after_yaml_whitespace_folding": true,
+  "gsm8k_pair_count": 8,
+  "all_15_polar_express_coefficients_in_named_upstream_record": true,
+  "sources": [
+    {
+      "name": "modded_nanogpt_record.txt",
+      "url": "https://api.github.com/repos/KellerJordan/modded-nanogpt/contents/records/track_1_short/2026-01-18_UnifiedOptimizers/unified-optimizer/2fc79469-a527-4bde-8540-8426ed3352d1.txt?ref=71af6208373d6065da641eb3cf9cc0acb1ce6b93",
+      "sha256": "bdaf1c87302df977989ff829c2adb2929139616302ab8d913493082254869d8b"
+    },
+    {
+      "name": "modded_nanogpt_LICENSE",
+      "url": "https://api.github.com/repos/KellerJordan/modded-nanogpt/contents/LICENSE?ref=71af6208373d6065da641eb3cf9cc0acb1ce6b93",
+      "sha256": "8c8d17398ecce3dd3fcb1bb77b5d268a427f8250f364ac655c9b38df5b693f6b"
+    },
+    {
+      "name": "lm_eval_gsm8k.yaml",
+      "url": "https://api.github.com/repos/EleutherAI/lm-evaluation-harness/contents/lm_eval/tasks/gsm8k/gsm8k-cot.yaml?ref=d6de81643928d653435c431bae19945d41d32520",
+      "sha256": "7c9dd2561fe334a55f62bdc6a876f045e6dc7f53714c7a9db506b89c6de6bc96"
+    },
+    {
+      "name": "lm_eval_wikitext.py",
+      "url": "https://api.github.com/repos/EleutherAI/lm-evaluation-harness/contents/lm_eval/tasks/wikitext/preprocess_wikitext.py?ref=d6de81643928d653435c431bae19945d41d32520",
+      "sha256": "a44020374b172159bf5be80a64d2c4194c9d5c77284f696ac666361338c8da7d"
+    },
+    {
+      "name": "lm_eval_LICENSE",
+      "url": "https://api.github.com/repos/EleutherAI/lm-evaluation-harness/contents/LICENSE.md?ref=d6de81643928d653435c431bae19945d41d32520",
+      "sha256": "a806e42547620dffbc2ec0333322c8b3523b4af11e059be14ef81aa5b1ae021f"
+    },
+    {
+      "name": "olmo_LICENSE",
+      "url": "https://api.github.com/repos/allenai/OLMo-core/contents/LICENSE?ref=ccf4ef4b5f6552e92f933589e9e6377d16fafb40",
+      "sha256": "62fb8a3a9621dc2388174caaabe9c2317b694bb9a1d46c98bcf5655b68f51be3"
+    },
+    {
+      "name": "olmo_NOTICES",
+      "url": "https://api.github.com/repos/allenai/OLMo-core/contents/THIRD_PARTY_NOTICES.md?ref=ccf4ef4b5f6552e92f933589e9e6377d16fafb40",
+      "sha256": "ca0a5a51ca98c592742042e51bf55c44a554cd4b9062f02a456483f771120e0f"
+    },
+    {
+      "name": "olmo_skip.py",
+      "url": "https://api.github.com/repos/allenai/OLMo-core/contents/src/olmo_core/optim/skip_step_optimizer.py?ref=ccf4ef4b5f6552e92f933589e9e6377d16fafb40",
+      "sha256": "91ddfd0bb95dc40ec0104a80ef90bf876ceec6ddba1e0f7a2040960ed4b90725"
+    },
+    {
+      "name": "olmo_stability.py",
+      "url": "https://api.github.com/repos/allenai/OLMo-core/contents/src/olmo_core/train/callbacks/stability_monitor.py?ref=ccf4ef4b5f6552e92f933589e9e6377d16fafb40",
+      "sha256": "69493451df37678552b64d195cbc4302f662fd97d789edf915f1960ced89f6be"
+    },
+    {
+      "name": "violetto_LICENSE",
+      "url": "https://api.github.com/repos/paradigma-inc/limite-violetto/contents/LICENSE?ref=7ddad34f5e3d25ddea68c6745fc00373b82bca21",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "name": "violetto_model.py",
+      "url": "https://api.github.com/repos/paradigma-inc/limite-violetto/contents/src/limite_vllm/modeling.py?ref=7ddad34f5e3d25ddea68c6745fc00373b82bca21",
+      "sha256": "838b0ca6332739cc14a94bc3c1452818b64c2e9bcbde9d939dc8ef28fc80c78f"
+    }
+  ],
+  "recovered_violetto_review_source": {
+    "repo": "paradigma-inc/limite-1b-violetto",
+    "revision": "9f4d1567975a44c35127503deadfe52d434d734f",
+    "source": "modeling_limite.py",
+    "git_blob_sha1": "afb1dac793c992998a1d9924fc296b41fa924344",
+    "download_receipt_date": "2026-10-07",
+    "limitation": "Identifies the archived review source; not every historical local adaptation."
+  },
+  "olmo_archived_reference_files_match_reviewed_upstream_bytes": true
+}

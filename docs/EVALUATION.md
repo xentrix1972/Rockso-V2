@@ -1,5 +1,11 @@
 # Evaluation and chat conditions
 
+**Public weights-only download:** use the separate [CPU inference guide](INFERENCE.md).
+It verifies and loads `rockso_hybrid_export_1` without optimizer/RNG state. The
+commands below describe the existing full-checkpoint evaluation workflow; do not
+substitute a public export where a full native checkpoint is required. Export
+generation checks are not benchmark results.
+
 Run these commands from the repository root in the documented Python environment,
 on a machine available for evaluation. They load model weights and can use the GPU;
 they must not be run alongside the protected live training session.
@@ -33,8 +39,8 @@ Package versions and benchmark revisions are part of a comparable evaluation.
 Native generation uses the V2 cached decoder with PrefixLM prefill and causal
 decoding. Optional `--cuda-graph-decode` performs the retained startup parity check;
 it can fall back when qualification fails. Likelihood-based multiple-choice scoring
-uses its reference path. No GPU evaluation or checkpoint load was performed while
-preparing this repository; static checks are not benchmark results.
+uses its reference path. This preparation tested the separate CPU export loader;
+no GPU evaluation was performed. See [the validation scope](RELEASE_VALIDATION.md).
 
 ## Perplexity
 

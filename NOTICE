@@ -1,0 +1,25 @@
+Rockso V2
+Copyright 2026 xentrix1972 and Rockso contributors.
+
+Original Rockso code and documentation are licensed under the Apache License,
+Version 2.0. Incorporated third-party material retains its own terms.
+
+The modified NorMuon optimizer includes material from Keller Jordan's
+modded-nanogpt, Copyright (c) 2024 Keller Jordan, under the MIT License.
+The optional SkipStepDetector credits OLMo-core's SkipStepOptimizer and
+StabilityMonitorCallback. OLMo-core identifies its copyright holder as
+The Allen Institute for Artificial Intelligence and uses Apache-2.0.
+
+The WikiText detokenizer and eight fixed GSM8K-CoT prompt fixtures are adapted
+from EleutherAI/lm-evaluation-harness, Copyright (c) 2020 EleutherAI, under the
+MIT License. This notice does not license benchmark datasets.
+
+Rockso's model source credits the Limite/Violetto MUDD design from Paradigma.
+The reviewed official Limite/Violetto source repository uses Apache-2.0.
+
+Rockso acknowledges Sapient Intelligence's HRM-Text research, training data,
+tokenizer and PrefixLM conventions. Tokenizer, weights and datasets are separate
+artifacts; this code license does not grant rights to them.
+
+See THIRD_PARTY_NOTICES.md for pinned sources, scope, modifications, retained
+license texts and review limitations. No upstream endorsement is implied.
